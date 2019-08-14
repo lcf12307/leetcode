@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 /*
 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 
@@ -16,10 +17,10 @@ import "fmt"
 
 输入: [4,1,2,1,2]
 输出: 4
- */
+*/
 func singleNumber(nums []int) int {
 	var result int
-	for i, data := range nums{
+	for i, data := range nums {
 		if i == 0 {
 			result = data
 		} else {
@@ -27,13 +28,12 @@ func singleNumber(nums []int) int {
 		}
 
 	}
-	return  result
+	return result
 }
 
-func main()  {
+func main() {
 
-
-	nums := []int{4,1,2,1,2}
-    result := singleNumber(nums)
+	nums := []int{4, 1, 2, 1, 2}
+	result := singleNumber(nums)
 	fmt.Println(result)
 }

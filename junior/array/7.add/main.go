@@ -22,39 +22,36 @@ import (
 输入: [4,3,2,1]
 输出: [4,3,2,2]
 解释: 输入数组表示数字 4321。
- */
+*/
 func plusOne(digits []int) []int {
-
 
 	length := len(digits)
 
-	if digits[length-1] == 9{
+	if digits[length-1] == 9 {
 		digits = plus(length-1, digits)
 	} else {
-		digits[length-1] ++
+		digits[length-1]++
 	}
 	return digits
 }
 
 func plus(index int, digits []int) []int {
-	if index == 0 && digits[0] == 9{
-		var temp = []int {0}
-		digits  = append(temp, digits...)
+	if index == 0 && digits[0] == 9 {
+		var temp = []int{0}
+		digits = append(temp, digits...)
 		index = 1
 	}
 	digits[index] = 0
 	if digits[index-1] == 9 {
 		digits = plus(index-1, digits)
 	} else {
-		digits[index -1] ++
+		digits[index-1]++
 	}
 	return digits
 }
-func main()  {
+func main() {
 
-
-	nums1 := []int{9,9}
+	nums1 := []int{9, 9}
 	result := plusOne(nums1)
 	fmt.Println(result)
 }
-

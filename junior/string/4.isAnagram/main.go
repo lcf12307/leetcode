@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-		)
+)
+
 /*
 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的一个字母异位词。
 
@@ -19,7 +20,7 @@ import (
 
 进阶:
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
- */
+*/
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
@@ -27,19 +28,19 @@ func isAnagram(s string, t string) bool {
 	count := len(s)
 	temp := []rune(s)
 	maps := make(map[rune]int)
-	for _, d := range temp{
-		if _,ok := maps[d]; ok {
-			maps[d] ++
+	for _, d := range temp {
+		if _, ok := maps[d]; ok {
+			maps[d]++
 		} else {
 			maps[d] = 1
 		}
 
 	}
 	temp = []rune(t)
-	for _, d := range temp{
-		if _, ok := maps[d]; ok && maps[d] > 0{
-			maps[d] --
-			count --
+	for _, d := range temp {
+		if _, ok := maps[d]; ok && maps[d] > 0 {
+			maps[d]--
+			count--
 		} else {
 			return false
 		}
@@ -47,8 +48,7 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 
-
-func main()  {
+func main() {
 	data1 := ""
 	data2 := ""
 	result := isAnagram(data1, data2)

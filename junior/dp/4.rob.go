@@ -22,19 +22,18 @@ import "fmt"
      偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 
 
- */
-func run_4()  {
-	data := []int{1,2,3,1}
+*/
+func run_4() {
+	data := []int{1, 2, 3, 1}
 	fmt.Println(rob(data))
 }
-
 
 func rob(nums []int) int {
 
 	if len(nums) == 0 {
 		return 0
 	}
-	if len(nums) == 1{
+	if len(nums) == 1 {
 		return nums[0]
 	}
 	if len(nums) == 2 {
@@ -47,12 +46,12 @@ func rob(nums []int) int {
 		if i < 2 {
 			continue
 		}
-		if dp[i-1] > dp[i-2] + d {
+		if dp[i-1] > dp[i-2]+d {
 			result = dp[i-1]
 			dp = append(dp, dp[i-1])
 		} else {
 			result = dp[i-2] + d
-			dp = append(dp, dp[i-2] + d)
+			dp = append(dp, dp[i-2]+d)
 		}
 
 	}

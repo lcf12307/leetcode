@@ -24,8 +24,8 @@ import "fmt"
 ]
 
 
- */
-func run_4()  {
+*/
+func run_4() {
 	root := &TreeNode{
 		1,
 		&TreeNode{
@@ -53,7 +53,7 @@ func run_4()  {
 
 func levelOrder(root *TreeNode) [][]int {
 	var result [][]int
-	var column [] int
+	var column []int
 	if root == nil {
 		return result
 	}
@@ -61,10 +61,10 @@ func levelOrder(root *TreeNode) [][]int {
 	current := 1
 	next := 0
 	stack = append(stack, root)
-	for len(stack) > 0  {
+	for len(stack) > 0 {
 		temp := stack[0]
 		stack = stack[1:]
-		current --
+		current--
 		if temp != nil {
 			stack = append(stack, temp.Left, temp.Right)
 			next += 2
@@ -75,7 +75,7 @@ func levelOrder(root *TreeNode) [][]int {
 			if len(column) > 0 {
 				result = append(result, column)
 			}
-			column = []int {}
+			column = []int{}
 		}
 	}
 	if len(column) > 0 {

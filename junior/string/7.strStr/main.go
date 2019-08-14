@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	)
+)
+
 /*
 实现 strStr() 函数。
 
@@ -26,8 +27,8 @@ import (
 
 
 
- */
- //使用kmp算法
+*/
+//使用kmp算法
 func strStr(haystack string, needle string) int {
 
 	hRune := []rune(haystack)
@@ -37,23 +38,23 @@ func strStr(haystack string, needle string) int {
 	}
 	next := findNext(nRune)
 	temp := 0
-	for i:=0; i < len(hRune); i++ {
+	for i := 0; i < len(hRune); i++ {
 		if hRune[i] == nRune[temp] {
-			index := i+1
-			temp ++
+			index := i + 1
+			temp++
 			if temp == len(nRune) {
 				return i
 			}
-			if index > len(hRune) - 1 {
+			if index > len(hRune)-1 {
 				return -1
 			}
-			for hRune[index] == nRune[temp]  {
-				index ++
-				temp ++
-				if temp > len(nRune) - 1 {
+			for hRune[index] == nRune[temp] {
+				index++
+				temp++
+				if temp > len(nRune)-1 {
 					return i
 				}
-				if index > len(hRune) - 1 {
+				if index > len(hRune)-1 {
 					return -1
 				}
 			}
@@ -66,24 +67,24 @@ func strStr(haystack string, needle string) int {
 
 //计算模式串的next
 func findNext(runes []rune) []int {
-	var next  = []int {0}
+	var next = []int{0}
 	temp := 0
-	for index := 1; index < len(runes); index++{
+	for index := 1; index < len(runes); index++ {
 		if runes[index] != runes[0] {
 			next = append(next, 0)
 			continue
 		}
-		for index < len(runes) && runes[index] == runes[temp]  {
-			temp ++
-			index ++
+		for index < len(runes) && runes[index] == runes[temp] {
+			temp++
+			index++
 			next = append(next, temp)
 		}
 		temp = 0
-		index --
+		index--
 	}
 	return next
 }
-func main()  {
+func main() {
 	data2 := "aaa"
 	data1 := "aaa"
 	result := strStr(data2, data1)

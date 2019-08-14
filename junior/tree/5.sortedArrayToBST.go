@@ -18,15 +18,15 @@ package main
  -10  5
 
 
- */
- /**
+*/
+/**
  [-10,-3,0,5,9]
 输出：[5,-3,9,-10,null,5]
 预期：[0,-3,9,-10,null,5]
 标准输出：[-10 -3 0 5 9]
-  */
-func run_5()  {
-	data := []int {-10,-3,0,5,9}
+*/
+func run_5() {
+	data := []int{-10, -3, 0, 5, 9}
 	PrintTree(sortedArrayToBST(data))
 }
 
@@ -56,7 +56,7 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	temp1 := nums
 	temp2 := nums
 	left := temp1[:center]
-	right := temp2[center + 1:]
+	right := temp2[center+1:]
 	return &TreeNode{
 		nums[center],
 		sortedArrayToBST(left),

@@ -32,8 +32,8 @@ import "fmt"
      根节点的值为 5 ，但是其右子节点值为 4 。
 
 
- */
-func run_98()  {
+*/
+func run_98() {
 	//root := &TreeNode{
 	//	3,
 	//	&TreeNode{
@@ -68,11 +68,11 @@ func run_98()  {
 }
 
 func isValidBST(root *TreeNode) bool {
-	const INT_MAX = 1<<31
-	return judge(root, -INT_MAX - 1, INT_MAX)
+	const INT_MAX = 1 << 31
+	return judge(root, -INT_MAX-1, INT_MAX)
 }
 
-func judge(root *TreeNode, min int, max int) bool  {
+func judge(root *TreeNode, min int, max int) bool {
 	if root == nil {
 		return true
 	}

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 )
+
 /*
 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
 
@@ -35,33 +36,33 @@ import (
 
 Go
 
- */
+*/
 func countAndSay(n int) string {
 	if n == 1 {
 		return "1"
 	}
-	read := countAndSay(n-1)
+	read := countAndSay(n - 1)
 	runes := []rune(read)
 	count := 0
 	temp := runes[0]
 	result := ""
 	for i, r := range runes {
-		if r == temp{
-			count ++
+		if r == temp {
+			count++
 
 		} else {
 			result += strconv.Itoa(count) + string(temp)
 			temp = r
 			count = 1
 		}
-		if i == len(runes) - 1 {
+		if i == len(runes)-1 {
 			result += strconv.Itoa(count) + string(temp)
 		}
 	}
 	return result
 }
 
-func main()  {
+func main() {
 	data := 5
 	result := countAndSay(data)
 	fmt.Println(result)

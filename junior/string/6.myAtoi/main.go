@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-		"math"
+	"math"
 )
+
 /*
 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
 
@@ -54,7 +55,7 @@ import (
      因此返回 INT_MIN (−231) 。
 
 
- */
+*/
 
 func myAtoi(str string) int {
 	runes := []rune(str)
@@ -62,25 +63,25 @@ func myAtoi(str string) int {
 		return 0
 	}
 	index := findFirstChar(runes)
-	if index == len(runes){
+	if index == len(runes) {
 		return 0
 	}
 	var sign int
-	if  runes[index] == '-' && index + 1 < len(runes) && runes[index+1] >= '0' && runes[index+1] <= '9' {
+	if runes[index] == '-' && index+1 < len(runes) && runes[index+1] >= '0' && runes[index+1] <= '9' {
 		sign = -1
-		index ++
-	} else if  runes[index] == '+' && index + 1 < len(runes) && runes[index+1] >= '0' && runes[index+1] <= '9' {
+		index++
+	} else if runes[index] == '+' && index+1 < len(runes) && runes[index+1] >= '0' && runes[index+1] <= '9' {
 		sign = 1
-		index ++
+		index++
 	} else if runes[index] >= '0' && runes[index] <= '9' {
 		sign = 1
 	} else {
 		return 0
 	}
 	result := int(runes[index] - '0')
-	for index ++; index < len(runes); index++ {
+	for index++; index < len(runes); index++ {
 		if runes[index] >= '0' && runes[index] <= '9' {
-			result = result * 10 + int(runes[index] - '0')
+			result = result*10 + int(runes[index]-'0')
 			if result > math.MaxInt32 {
 				if sign < 0 {
 					return math.MinInt32
@@ -97,15 +98,15 @@ func myAtoi(str string) int {
 }
 
 //找到第一个非空白字符
-func findFirstChar(runes []rune) int  {
+func findFirstChar(runes []rune) int {
 	var index int
-	for index = 0; index < len(runes) && runes[index] == ' '; index ++{
+	for index = 0; index < len(runes) && runes[index] == ' '; index++ {
 		fmt.Println(index)
 	}
 	return index
 }
 
-func main()  {
+func main() {
 	data := "+1"
 	result := myAtoi(data)
 	fmt.Println(result)

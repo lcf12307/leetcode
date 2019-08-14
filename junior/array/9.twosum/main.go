@@ -16,24 +16,22 @@ import (
 
 必须在原数组上操作，不能拷贝额外的数组。
 尽量减少操作次数。
- */
+*/
 
 func twoSum(nums []int, target int) []int {
 	temp := make(map[int]int)
-	for i,d := range nums{
-		if _, ok := temp[target - d]; ok {
-			return []int {temp[target - d], i}
+	for i, d := range nums {
+		if _, ok := temp[target-d]; ok {
+			return []int{temp[target-d], i}
 		}
 		temp[d] = i
 	}
-	return []int {}
+	return []int{}
 }
 
-func main()  {
+func main() {
 
-
-	nums1 := []int{2,7,11,15}
-	result := twoSum(nums1,9)
+	nums1 := []int{2, 7, 11, 15}
+	result := twoSum(nums1, 9)
 	fmt.Println(result)
 }
-

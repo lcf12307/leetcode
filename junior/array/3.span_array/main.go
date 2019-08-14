@@ -24,25 +24,24 @@ import "fmt"
 
 尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。
 要求使用空间复杂度为 O(1) 的原地算法。
- */
-func rotate(nums []int, k int)  {
+*/
+func rotate(nums []int, k int) {
 	length := len(nums)
 	k = k % length
 
 	// 若直接赋值给原数组，可能会因为切片容量不够，导致内存重新分配地址
 	// go语言里两个引用传递的数据类型 1. 切片； 2. map
 	// ...表示切片展开
-	a := append(nums[length - k:], nums[: length - k]...)
+	a := append(nums[length-k:], nums[:length-k]...)
 
-
-	for i,d := range a {
+	for i, d := range a {
 		nums[i] = d
 	}
 }
 
-func main()  {
+func main() {
 
-	nums := []int{1,2,3,4,5,6,7}
+	nums := []int{1, 2, 3, 4, 5, 6, 7}
 	rotate(nums, 3)
 
 	for i := range nums {

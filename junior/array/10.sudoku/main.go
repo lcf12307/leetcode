@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 /*
 
 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
@@ -52,11 +53,11 @@ import "fmt"
 只需要根据以上规则，验证已经填入的数字是否有效即可。
 给定数独序列只包含数字 1-9 和字符 '.' 。
 给定数独永远是 9x9 形式的。
- */
+*/
 func containsDuplicate(nums []byte) bool {
 	temp := make(map[byte]bool)
 	for _, i := range nums {
-		if _, ok := temp[i]; ok && i != "."{
+		if _, ok := temp[i]; ok && i != "." {
 			return true
 		} else {
 			temp[i] = true
@@ -67,14 +68,14 @@ func containsDuplicate(nums []byte) bool {
 
 func isValidSudoku(board [][]byte) bool {
 	var temp []byte
-	for i:=0; i<3; i++ {
-		for j:=0; j<3; j++ {
-			temp = []byte {board[i*3+1][j*3+1], board}
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			temp = []byte{board[i*3+1][j*3+1], board}
 		}
 	}
 }
-func main()  {
-	data := []int{1,1,1,3,3,4,3,2,4,2}
+func main() {
+	data := []int{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}
 	result := containsDuplicate(data)
 	fmt.Println(result)
 }

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	)
+)
 
 /*
 
@@ -16,29 +16,26 @@ import (
 
 必须在原数组上操作，不能拷贝额外的数组。
 尽量减少操作次数。
- */
-func moveZeroes(nums []int)  {
+*/
+func moveZeroes(nums []int) {
 	//记录0的个数
 	count := 0
-	for index:=0;index<len(nums);index++{
+	for index := 0; index < len(nums); index++ {
 		if nums[index] == 0 {
 			count++
-			if count + index > len(nums) {
+			if count+index > len(nums) {
 				break
 			}
-			nums =  append(nums[:index], nums[index+1:]...)
+			nums = append(nums[:index], nums[index+1:]...)
 			nums = append(nums, 0)
-			index --
+			index--
 		}
 	}
 }
 
+func main() {
 
-func main()  {
-
-
-	nums1 := []int{0,0,1}
+	nums1 := []int{0, 0, 1}
 	moveZeroes(nums1)
 	fmt.Println(nums1)
 }
-

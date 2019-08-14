@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 /*
 给定一个整数数组，判断是否存在重复元素。
 
@@ -18,21 +19,21 @@ import "fmt"
 
 输入: [1,1,1,3,3,4,3,2,4,2]
 输出: true
- */
+*/
 func containsDuplicate(nums []int) bool {
-		temp := make(map[int]bool)
-		for _, i := range nums {
-			if _, ok := temp[i]; ok {
-				return true
-			} else {
-				temp[i] = true
-			}
+	temp := make(map[int]bool)
+	for _, i := range nums {
+		if _, ok := temp[i]; ok {
+			return true
+		} else {
+			temp[i] = true
 		}
-		return false
+	}
+	return false
 }
 
-func main()  {
-	data := []int{1,1,1,3,3,4,3,2,4,2}
+func main() {
+	data := []int{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}
 	result := containsDuplicate(data)
 	fmt.Println(result)
 }

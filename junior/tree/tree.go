@@ -23,7 +23,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func PrintTree(root *TreeNode){
+func PrintTree(root *TreeNode) {
 	if root == nil {
 		fmt.Print("null, ")
 	} else {

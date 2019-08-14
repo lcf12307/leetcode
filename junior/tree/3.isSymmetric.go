@@ -25,8 +25,8 @@ import "fmt"
 
 如果你可以运用递归和迭代两种方法解决这个问题，会很加分。
 
- */
-func run_3()  {
+*/
+func run_3() {
 	root := &TreeNode{
 		1,
 		&TreeNode{
@@ -74,7 +74,7 @@ func compare(left *TreeNode, right *TreeNode) bool {
 		return false
 	}
 	if left.Val != right.Val {
-		 return false
+		return false
 	}
 	return compare(left.Right, right.Left) && compare(left.Left, right.Right)
 }

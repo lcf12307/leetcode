@@ -29,20 +29,20 @@ import "fmt"
 
 
 
- */
+*/
 
-func run_1()  {
+func run_1() {
 	n := 3
 	fmt.Println(climbStairs(n))
 }
 func climbStairs(n int) int {
 	first, second, ret := 1, 1, 0
-	for i:=2; i <= n; i++  {
+	for i := 2; i <= n; i++ {
 		ret = first + second
 		first = second
 		second = ret
 	}
-	return  second
+	return second
 }
 
 func climbStairs1(n int) int {
@@ -52,7 +52,5 @@ func climbStairs1(n int) int {
 	if n == 1 {
 		return 1
 	}
-	return  climbStairs(n - 1) + climbStairs(n - 2)
+	return climbStairs(n-1) + climbStairs(n-2)
 }
-
-

@@ -28,7 +28,7 @@ import "fmt"
 输入: [7,6,4,3,1]
 输出: 0
 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
- */
+*/
 func maxProfit(prices []int) int {
 	if len(prices) == 0 {
 		return 0
@@ -52,14 +52,12 @@ func maxProfit(prices []int) int {
 	return sum
 }
 
-
 func main() {
 
-	nums := []int{1,2,3,4,5}
+	nums := []int{1, 2, 3, 4, 5}
 	// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
 	len := maxProfit(nums)
 	// 在函数里修改输入数组对于调用者是可见的。
 	// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
 	fmt.Println(len)
 }
-

@@ -23,14 +23,12 @@ import "fmt"
 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
 
 
- */
+*/
 
-func run_2()  {
-	data := []int{7,1,5,3,6,4}
+func run_2() {
+	data := []int{7, 1, 5, 3, 6, 4}
 	fmt.Println(maxProfit(data))
 }
-
-
 
 func maxProfit(prices []int) int {
 	profit := 0
@@ -46,7 +44,7 @@ func maxProfit(prices []int) int {
 		if d < min {
 			min, max = d, d
 		}
-		if profit < max - min {
+		if profit < max-min {
 			profit = max - min
 		}
 	}
@@ -59,13 +57,13 @@ func maxProfit2(prices []int) int {
 	}
 	min, max := prices[0], prices[0]
 	profit := 0
-	for i:=0; i<len(prices) - 1; i++ {
-		if prices[i] > prices[i + 1]{
+	for i := 0; i < len(prices)-1; i++ {
+		if prices[i] > prices[i+1] {
 			max = prices[i]
 			profit += max - min
-			min = prices[i + 1]
-		} else if i == len(prices) - 2 {
-			max = prices[i + 1]
+			min = prices[i+1]
+		} else if i == len(prices)-2 {
+			max = prices[i+1]
 			profit += max - min
 		}
 	}
