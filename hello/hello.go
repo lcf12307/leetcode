@@ -1,23 +1,28 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
+		"fmt"
 	"os"
 )
 
+//func main(){
+//	var JAVAHOME string
+//	JAVAHOME = os.Getenv("GOGCCFLAGS")
+//	fmt.Println(JAVAHOME)
+//}
+
 func main() {
-	// 声明并初始化带缓冲的读取器。
-	// 准备从标准输入读取内容。
-	inputReader := bufio.NewReader(os.Stdin)
-	fmt.Println("Please input your name:")
-	// 以 \n 为分隔符读取一段内容。
-	input, err := inputReader.ReadString('\n')
+	//创建一个新的名称为 keys 值为 Hello World! 的环境变量
+	err := os.Setenv("GOGCCFLAGS", "-fPIC -m64 -pthread -fmessage-length=0")
 	if err != nil {
-		fmt.Printf("Found an error : %s\n", err)
+		//如果出错则输出错误信息
+		fmt.Printf("%s", err)
 	} else {
-		// 对 input 进行切片操作，去掉内容中最后一个字节 \n 。
-		input = input[:len(input)-1]
-		fmt.Printf("Hello, %s!\n", input)
+		//如果执行成功则输出 set key OK!
+		fmt.Println("set key OK!")
+		//输出所有环境变量字段和值
+		for _, v := range os.Environ() {
+			fmt.Println(v)
+		}
 	}
 }

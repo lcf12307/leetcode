@@ -39,7 +39,7 @@ int len = removeDuplicates(nums);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
- */
+*/
 func removeDuplicates(nums []int) int {
 	for i := len(nums) - 1; i > 0; i-- {
 		if nums[i] == nums[i-1] {
@@ -51,12 +51,12 @@ func removeDuplicates(nums []int) int {
 }
 func main() {
 
-	nums := []int{2,4,5,7,7,3,6,7,7,2,3,7}
+	nums := []int{2, 4, 5, 7, 7, 3, 6, 7, 7, 2, 3, 7}
 	// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-	len := removeDuplicates(nums);
+	len := removeDuplicates(nums)
 	// 在函数里修改输入数组对于调用者是可见的。
 	// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-	for i:=0; i< len; i++ {
+	for i := 0; i < len; i++ {
 		fmt.Print(nums[i])
 	}
 }
